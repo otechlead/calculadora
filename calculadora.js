@@ -50,3 +50,14 @@ function converterTextoParaPadraoEval(texto) {
 
     return textoPadraoEval;
 }
+
+function verificarLetra() {
+    const visor = document.getElementById("visor")
+    const listaTexto = visor.value.split("")
+
+    if (/[^0-9/*\-+.]/g.test(listaTexto[listaTexto.length - 1])) {
+        listaTexto.pop()
+    }
+
+    visor.value = listaTexto.join("")
+}
