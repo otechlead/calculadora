@@ -23,6 +23,8 @@ function limpar() {
 function calcular() {
     // Busca o visor para ler a conta que está escrita nele
     let visor = document.getElementById("visor");
+
+    visor.value = converterTextoParaPadraoEval(visor.value);
     
     // 1. O comando 'eval' lê o texto (ex: "5+5") e o resolve como matemática (10)
     let resultado = eval(visor.value);
@@ -37,4 +39,14 @@ function calcular() {
 
     // 3. Finalmente, mostramos o resultado final (limpo) de volta no visor
     visor.value = resultado;
+}
+
+function converterTextoParaPadraoEval(texto) {
+    if (texto == null) return "";
+
+    const textoPadraoEval = String(texto)
+        .replace(/²/g, "**2")
+        .replace(/³/g, "**3");
+
+    return textoPadraoEval;
 }
