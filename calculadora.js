@@ -12,18 +12,6 @@ CalculadoraDB.onsuccess = function(event) {
     deletarContas()
 }
 
-addEventListener("DOMContentLoaded", (e) => {
-    console.log("evento ativo")
-    const trasacao = db.transaction(["calculos"], "readwrite")
-    const objetosCalculos = trasacao.objectStore("calculos")
-
-    const clearCalculos = objetosCalculos.clear()
-
-    clearCalculos.onsuccess = function(event) {
-        console.log("Contas apagadas")
-    }
-})
-
 CalculadoraDB.onerror = (event) => {
     console.log("Error ao conectar ao IndexedDB")
 }
@@ -72,7 +60,6 @@ function mostrarContas(calculos) {
     historico.appendChild(conta)
 }
 
-
 function carregarContas() {
 
     const transacao = db.transaction(["calculos"], "readonly")
@@ -83,24 +70,12 @@ function carregarContas() {
     getCalculos.onsuccess = function(event) {
         const calculos = event.target.result    
         mostrarContas(calculos)
-        const historico = document.getElementById("historico")
-
-        for(let calc of calculos) {
-            const paragrafo = document.createElement("p")
-            console.log(calc)
-            paragrafo.className = "historico-conta"
-            paragrafo.innerHTML = `${calc.conta} = ${calc.resultado}`
-
-            historico.appendChild(paragrafo)
-        }
     }
 
     getCalculos.onerror = function(event) {
         console.log("Error ao carregar as contas")
     }
 }
-
-
 
 // Função que é executada toda vez que clicamos em um número ou operador
 function digitar(caractere) {
@@ -200,7 +175,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-    // Limpar Historico quando a pagina e carregada
 });
 
 
