@@ -120,7 +120,7 @@ body {
 }
 
 .limpar {
-  background-color: #09531f;
+  background-color: #530909;
 }
 
 .igual {
@@ -134,7 +134,7 @@ body {
 }
 
 .grande {
-  grid-column: span 4;
+  grid-column: span 3;
   border-radius: 15px;
   height: 60px;
 }

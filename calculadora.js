@@ -111,6 +111,10 @@ function calcular() {
     // Busca o visor para ler a conta que está escrita nele
     let visor = document.getElementById("visor");
 
+    if (visor.value == "") {
+        return;
+    }
+
     visor.value = converterTextoParaPadraoEval(visor.value);
 
     // 1. O comando 'eval' lê o texto (ex: "5+5") e o resolve como matemática (10)
@@ -164,6 +168,13 @@ function togglePainel(id) {
     } else {
         painel.style.display = "block";
     }
+}
+
+function apagaUltimoCaractere() {
+    const visor = document.getElementById("visor");
+    const listaTexto = visor.value.split("");
+    listaTexto.pop();
+    visor.value = listaTexto.join("");
 }
 
 
