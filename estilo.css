@@ -1,21 +1,25 @@
 /* 1. CONFIGURAÇÃO DA PÁGINA */
 body {
-  background-color: #000000;  /* Azul marinho bem escuro */
+  background-color: #000000;
+  /* Azul marinho bem escuro */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
   font-family: Arial, sans-serif;
+  gap: 30px;
 }
 
 /* 2. CAIXA PRINCIPAL */
 .calculadora {
-  background-color: #191e22;  /* Azul escuro */
+  background-color: #191e22;
+  /* Azul escuro */
   padding: 20px;
   border-radius: 40px;
   width: 300px;
-  box-shadow: 0 0 25px #163d5a; /* Sombra azulada */
+  box-shadow: 0 0 25px #163d5a;
+  /* Sombra azulada */
   text-align: center;
 }
 
@@ -36,37 +40,40 @@ body {
   text-align: center;
 }
 
-/* 3. TÍTULO */
-.calculadora h1#cabecalho {
-  color: #e3f2fd; /* Azul bem claro */
-  margin-bottom: 10px;
-  
+/* 3. TÍTULO E HEADER */
+.header-calculadora {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
-.calculadora h1#cabecalho .detalhe {
-  font-size: 70px;
-  color: #141414;
-  text-align: left;
+.btn-toggle {
+  background-color: #495740;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.btn-toggle:hover {
+  background-color: #666d0b;
+}
+
+.calculadora h1#cabecalho {
+  color: #e3f2fd;
+  /* Azul bem claro */
+  margin: 0;
 }
 
 .calculadora h1#cabecalho .titulo {
   font-size: 25px;
-  text-decoration: overline underline;
-  text-align: right;
+  text-align: center;
 }
-
-.calculadora h1#cabecalho .subtitulo {
-  font-size: 15px;
-  text-align: right;
-}
-
-#labelCientifica {
-  color: #e3f2fd;
-  font-size: 15px;
-  text-align: left;
-  margin-bottom: 10px;
-}
-
 
 /* 4. VISOR */
 #visor {
@@ -78,7 +85,8 @@ body {
   border: none;
   padding: 10px;
   box-sizing: border-box;
-  background-color: #495740; /* Azul médio */
+  background-color: #495740;
+  /* Azul médio */
   color: #ffffff;
   margin-bottom: 15px;
 }
@@ -97,21 +105,26 @@ body {
   border: none;
   border-radius: 20%;
   cursor: pointer;
-  background-color: #101416; /* Azul padrão */
+  background-color: #101416;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #555;
   color: white;
 }
 
 /* 7. CORES ESPECÍFICAS */
 .operador {
-  background-color: #09531f; /* Azul claro para operadores */
+  background-color: #09531f;
 }
 
 .limpar {
-  background-color: #09531f; /* Azul mais forte (ação importante) */
+  background-color: #09531f;
 }
 
 .igual {
-  background-color: #666d0b; /* Azul vibrante (resultado) */
+  background-color: #1e527a;
 }
 
 /* 8. BOTÕES ESPECIAIS */
@@ -126,16 +139,34 @@ body {
   height: 60px;
 }
 
-/* Historico */
+/* Painéis Laterais */
+.funcao-cientifica,
 .calculadora-historico {
-  background-color: #191e22;  /* Azul escuro */
+  background-color: #191e22;
+  /* Azul escuro */
   padding: 20px;
-  margin-left: 50px;
   border-radius: 40px;
   width: 300px;
   height: 500px;
-  box-shadow: 0 0 25px #163d5a; /* Sombra azulada */
+  box-shadow: 0 0 25px #163d5a;
+  /* Sombra azulada */
   text-align: center;
+  display: none;
+  /* Escondido por padrão */
+  overflow-y: auto;
+}
+
+.funcao-cientifica h2,
+.calculadora-historico h2 {
+  color: #e3f2fd;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.teclado-cientifico {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
 }
 
 .titulo {
@@ -146,5 +177,6 @@ body {
 
 .conta-historico {
   text-align: center;
-  color: #163d5a;
+  font-style: italic;
+  color: #b0d2ec;
 }
